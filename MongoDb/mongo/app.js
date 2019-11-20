@@ -58,7 +58,8 @@ app.use('/view',viewRouter);
 app.use('/search',searchRouter);
 app.use('/edde',eddeRouter);
 
-mongoose.connect("mongodb://localhost:27017/MyCollegeDb");
+mongoose.connect("mongodb+srv://unniDb:unni123@cluster0-3h7qw.mongodb.net/test?retryWrites=true&w=majority");
+//mongoose.connect("mongodb://localhost:27017/MyCollegeDb");
 
 app.set('views','./src/views');
 app.set('view engine','ejs');
@@ -79,6 +80,6 @@ nav,
 title:"Library"
 }
 )});
-app.listen(3001,()=>{
+app.listen(process.env.PORT || 3001,()=>{
     console.log("listening to port "+chalk.green('3001') );
 })
